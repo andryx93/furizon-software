@@ -11,11 +11,15 @@
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link href="{{ url_for('static', filename='/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='/css/plugins.css')}}" rel="stylesheet" type="text/css" />
+    <!--<link href="{{ url_for('static', filename='/css/plugins.css')}}" rel="stylesheet" type="text/css" />-->
+    <link href="{{ url_for('static', filename='plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='plugins/highlight/styles/monokai-sublime.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/structure.css')}}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    {% block pagelevel_plugins %}{% endblock %}
+    {% block pagelevel_plugins%}{%endblock%}
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
@@ -37,7 +41,7 @@
                     </a>
                 </li>
                 <li class="nav-item theme-text">
-                    <a href="{{ url_for('index') }}" class="nav-link"> FURIZON CONOPS </a>
+                    <a href="{{ url_for('index') }}" class="nav-link"> FURIZON CON-OPS </a>
                 </li>
             </ul>
 
@@ -169,16 +173,9 @@
         
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
-            <div class="layout-px-spacing">
+            
+            {%block content %}{% endblock %}
 
-                <div class="row layout-top-spacing">
-
-                    {%block content %}{% endblock %}
-                   
-
-                </div>
-
-            </div>
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
                     <p class="">Copyright © {%block year_copyright%}{%endblock%} <a target="_blank" href="https://furizon.net">A.P.S. FURIZON</a></p>
@@ -205,8 +202,8 @@
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <!--<script src="plugins/apex/apexcharts.min.js"></script>
-    <script src="assets/js/dashboard/dash_1.js"></script> -->
+    <script src="{{ url_for('static', filename='plugins/apex/apexcharts.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/dashboard/dash_1.js')}}"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 
 </body>
